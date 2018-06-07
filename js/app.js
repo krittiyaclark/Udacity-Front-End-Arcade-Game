@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
         this.speed = 100 + Math.floor(Math.random() * 450);
 
     }
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -57,23 +57,23 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function(keypress) {
-    if (keypress === 'right') {
-        this.x -= this.speed + 50;
+Player.prototype.handleInput = function(keyPress) {
+    if (keyPress == 'left') {
+    player.x -= player.speed;
     }
-    if (keypress === 'left') {
-        this.x -= this.speed + 40;
+    if (keyPress == 'up') {
+        player.y -= player.speed - 60;
     }
-    if (keypress === 'up') {
-        this.x -= this.speed + 20;
+    if (keyPress == 'right') {
+        player.x += player.speed;
     }
-    if (keypress === 'down') {
-        this.x -= this.speed - 20;
+    if (keyPress == 'down') {
+        player.y += player.speed - 20;
     }
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-allEnemies = [
+var allEnemies = [
     new Enemy(-100, 145),
     new Enemy(-100, 145),
     new Enemy(-100, 80),
