@@ -41,16 +41,20 @@ var Player = function(x, y, speed) {
 };
 
 Player.prototype.update = function() {
-    if (this.x > 505) {
-        this.x = 505;
-    }
+    // Recall that the player cannot move off screen
     if (this.y > 380) {
         this.y = 380;
     }
-    if (this.x < 0) {
-        this.x = 200;
-        this.y = 380;
+    if (this.x > 400) {
+        this.x = 400;
     }
+    if (this.y < 0) {
+        this.y = 0;
+    }
+    // if (this.x < 0) {
+    //     this.x = 200;
+    //     this.y = 380;
+    // }
 };
 
 Player.prototype.render = function() {
@@ -59,10 +63,10 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(keyPress) {
     if (keyPress == 'left') {
-    player.x -= player.speed;
+        player.x -= player.speed;
     }
     if (keyPress == 'up') {
-        player.y -= player.speed - 60;
+        player.y -= player.speed - 20;
     }
     if (keyPress == 'right') {
         player.x += player.speed;
@@ -74,12 +78,12 @@ Player.prototype.handleInput = function(keyPress) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [
-    new Enemy(-100, 145),
-    new Enemy(-100, 145),
-    new Enemy(-100, 80),
-    new Enemy(-100, 45),
-    new Enemy(-100, 50),
-    new Enemy(-100, 60)
+    new Enemy(-100, 145, 100),
+    new Enemy(-100, 145, 100),
+    new Enemy(-100, 80, 100),
+    new Enemy(-100, 45, 100),
+    new Enemy(-100, 50, 100),
+    new Enemy(-100, 60, 100)
 ];
 // Place the player object in a variable called player
 var player = new Player(200, 380, 50);
