@@ -1,8 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -14,7 +16,14 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-};
+    this.x += this.speed * dt;
+    // Reset Enemy when off canvas
+    if (this.x > 505) {
+        this.x = -10;
+        this.speed = 100 + Math.floor(Math.random() * 450);
+
+    }
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -28,9 +37,23 @@ Enemy.prototype.render = function() {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+allEnemies = [
+    new Enemy(-100, 145),
+    new Enemy(-100, 145),
+    new Enemy(-100, 80),
+    new Enemy(-100, 45),
+    new Enemy(-100, 50),
+    new Enemy(-100, 60)
+];
 // Place the player object in a variable called player
+var Player = function(x, y, speed) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.sprite = 'images/char-princess-girl.png';
+}
 
-
+var player = new Player(200, 380, 50);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
