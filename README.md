@@ -15,11 +15,11 @@ Instructions how to download/clone this code and run the application locally.
 1. Clone project:
 
     ```
-    $ [sudo] git clone git@github.com:brenopolanski/udacity-classic-arcade-game-clone.git
+    $ [sudo] git clone git@github.com:krittiyaclark/Udacity-Front-End-Arcade-Game.git
     ```
 
 2. Serve the application:
-   Open the terminal (Mac and Linux) or command prompt (Windows). ```cd``` to a directory where you've saved an HTML file. Run ```python --version```. If you have Python 2, run 
+   Open the terminal (Mac and Linux) or command prompt (Windows). ```cd``` to a directory where you've saved an HTML file. Run ```python --version```. If you have Python 2, run
 
     ```
     $ [sudo] python -m SimpleHTTPServer
