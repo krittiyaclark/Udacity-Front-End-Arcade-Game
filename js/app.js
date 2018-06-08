@@ -22,7 +22,14 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 505) {
         this.x = -10;
         this.speed = 100 + Math.floor(Math.random() * 450);
-
+    }
+    // Check for collision
+    if (player.x < this.x + 40 &&
+        player.x + 40 > this.x &&
+        player.y < this.y + 40 &&
+        40 + player.y > this.y) {
+        player.x = 200;
+        player.y = 380;
     }
 };
 
@@ -77,6 +84,7 @@ Player.prototype.handleInput = function(keyPress) {
     }
     console.log(this.x, this.y);
 };
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [
