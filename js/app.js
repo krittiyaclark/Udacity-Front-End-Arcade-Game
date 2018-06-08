@@ -49,7 +49,7 @@ var Player = function(x, y, speed) {
 };
 
 Player.prototype.update = function() {
-    // Recall that the player cannot move off screen
+    // Recall the player cannot move off screen
     if (this.y > 380) {
         this.y = 380;
     }
