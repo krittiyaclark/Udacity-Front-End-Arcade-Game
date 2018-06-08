@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+'use strict';
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -48,13 +49,13 @@ Player.prototype.update = function() {
     if (this.x > 400) {
         this.x = 400;
     }
-    if (this.y < 0) {
-        this.y = 0;
+    if (this.x < 0) {
+        this.x = 0;
     }
-    // if (this.x < 0) {
-    //     this.x = 200;
-    //     this.y = 380;
-    // }
+    if (this.y <= 0) {
+        this.x = 200;
+        this.y = 380;
+    }
 };
 
 Player.prototype.render = function() {
@@ -74,17 +75,17 @@ Player.prototype.handleInput = function(keyPress) {
     if (keyPress == 'down') {
         player.y += player.speed - 20;
     }
+    console.log(this.x, this.y);
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [
-    new Enemy(-100, 145, 100),
-    new Enemy(-100, 145, 100),
-    new Enemy(-100, 80, 100),
-    new Enemy(-100, 45, 100),
-    new Enemy(-100, 50, 100),
-    new Enemy(-100, 60, 100)
+    new Enemy(-100, 60, 250),
+    new Enemy(-100, 180, 400),
+    new Enemy(-100, 240, 150),
+    new Enemy(-100, 120, 300)
 ];
+
 // Place the player object in a variable called player
 var player = new Player(200, 380, 50);
 
