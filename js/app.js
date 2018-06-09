@@ -74,13 +74,13 @@ Player.prototype.handleInput = function(keyPress) {
         player.x -= player.speed;
     }
     if (keyPress == 'up') {
-        player.y -= player.speed - 20;
+        player.y -= player.speed - 81;
     }
     if (keyPress == 'right') {
         player.x += player.speed;
     }
     if (keyPress == 'down') {
-        player.y += player.speed - 20;
+        player.y += player.speed - 81;
     }
     console.log(this.x, this.y);
 };
